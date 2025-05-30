@@ -77,6 +77,35 @@
             color: var(--primary);
         }
 
+        .language-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: 2rem;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .lang-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -512,12 +541,18 @@
     <nav>
         <div class="nav-container">
             <div class="logo">Akmal Fadli</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div style="display: flex; align-items: center;">
+                <ul class="nav-links">
+                    <li><a href="#home" data-en="Home" data-id="Beranda">Home</a></li>
+                    <li><a href="#about" data-en="About" data-id="Tentang">About</a></li>
+                    <li><a href="#projects" data-en="Projects" data-id="Proyek">Projects</a></li>
+                    <li><a href="#contact" data-en="Contact" data-id="Kontak">Contact</a></li>
+                </ul>
+                <div class="language-toggle">
+                    <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+                    <button class="lang-btn" onclick="switchLanguage('id')">ID</button>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -534,13 +569,13 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Akmal Fadli</h1>
-                <p class="subtitle">IoT Hardware Developer & Systems Engineer</p>
-                <p class="description">
+                <p class="subtitle" data-en="IoT Hardware Developer & Systems Engineer" data-id="Pengembang Hardware IoT & Insinyur Sistem">IoT Hardware Developer & Systems Engineer</p>
+                <p class="description" data-en="Designing intelligent hardware solutions with ESP32, creating seamless IoT ecosystems, and bridging the gap between embedded systems and modern applications. From circuit design to full-stack implementation." data-id="Merancang solusi hardware cerdas dengan ESP32, menciptakan ekosistem IoT yang seamless, dan menjembatani sistem embedded dengan aplikasi modern. Dari desain sirkuit hingga implementasi full-stack.">
                     Designing intelligent hardware solutions with ESP32, creating seamless IoT ecosystems, and bridging the gap between embedded systems and modern applications. From circuit design to full-stack implementation.
                 </p>
                 <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    <a href="#projects" class="btn btn-primary" data-en="View My Work" data-id="Lihat Karya Saya">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary" data-en="Get In Touch" data-id="Hubungi Saya">Get In Touch</a>
                 </div>
             </div>
         </div>
@@ -550,19 +585,19 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">
+                <h2 class="section-title" data-en="About Me" data-id="Tentang Saya">About Me</h2>
+                <p class="section-subtitle" data-en="A versatile IT professional from Purbalingga, Central Java, with expertise spanning hardware design, software development, and system architecture." data-id="Profesional IT serbaguna dari Purbalingga, Jawa Tengah, dengan keahlian yang mencakup desain hardware, pengembangan software, dan arsitektur sistem.">
                     A versatile IT professional from Purbalingga, Central Java, with expertise spanning hardware design, software development, and system architecture.
                 </p>
             </div>
             
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Building Tomorrow's Technology Today</h3>
-                    <p>
+                    <h3 data-en="Building Tomorrow's Technology Today" data-id="Membangun Teknologi Masa Depan Hari Ini">Building Tomorrow's Technology Today</h3>
+                    <p data-en="As a dedicated IT professional, I specialize in creating comprehensive solutions that bridge hardware and software. My journey has taken me from designing ESP32-based IoT systems to developing full-stack web applications for niche markets like livestock management." data-id="Sebagai profesional IT yang berdedikasi, saya mengkhususkan diri dalam menciptakan solusi komprehensif yang menjembatani hardware dan software. Perjalanan saya telah membawa saya dari merancang sistem IoT berbasis ESP32 hingga mengembangkan aplikasi web full-stack untuk pasar khusus seperti manajemen ternak.">
                         As a dedicated IT professional, I specialize in creating comprehensive solutions that bridge hardware and software. My journey has taken me from designing ESP32-based IoT systems to developing full-stack web applications for niche markets like livestock management.
                     </p>
-                    <p>
+                    <p data-en="I believe in the power of technology to solve real-world problems, whether it's through efficient relay control systems or user-friendly mobile applications. Every project is an opportunity to learn, innovate, and make a meaningful impact." data-id="Saya percaya pada kekuatan teknologi untuk memecahkan masalah dunia nyata, baik melalui sistem kontrol relay yang efisien maupun aplikasi mobile yang user-friendly. Setiap proyek adalah kesempatan untuk belajar, berinovasi, dan memberikan dampak yang bermakna.">
                         I believe in the power of technology to solve real-world problems, whether it's through efficient relay control systems or user-friendly mobile applications. Every project is an opportunity to learn, innovate, and make a meaningful impact.
                     </p>
                 </div>
@@ -570,22 +605,22 @@
                 <div class="skills-grid">
                     <div class="skill-item">
                         <div class="skill-icon">⚡</div>
-                        <h4>IoT & Hardware</h4>
+                        <h4 data-en="IoT & Hardware" data-id="IoT & Hardware">IoT & Hardware</h4>
                         <p>ESP32, Circuit Design, KiCad</p>
                     </div>
                     <div class="skill-item">
                         <div class="skill-icon">📱</div>
-                        <h4>Mobile Development</h4>
+                        <h4 data-en="Mobile Development" data-id="Pengembangan Mobile">Mobile Development</h4>
                         <p>Android, Java, React Native</p>
                     </div>
                     <div class="skill-item">
                         <div class="skill-icon">🌐</div>
-                        <h4>Web Development</h4>
+                        <h4 data-en="Web Development" data-id="Pengembangan Web">Web Development</h4>
                         <p>Full-Stack, PHP, JavaScript</p>
                     </div>
                     <div class="skill-item">
                         <div class="skill-icon">🛠️</div>
-                        <h4>System Architecture</h4>
+                        <h4 data-en="System Architecture" data-id="Arsitektur Sistem">System Architecture</h4>
                         <p>API Design, Database, DevOps</p>
                     </div>
                 </div>
@@ -597,8 +632,8 @@
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="section-subtitle">
+                <h2 class="section-title" data-en="Featured Projects" data-id="Proyek Unggulan">Featured Projects</h2>
+                <p class="section-subtitle" data-en="A showcase of my work across different technologies and domains" data-id="Showcase karya saya di berbagai teknologi dan domain">
                     A showcase of my work across different technologies and domains
                 </p>
             </div>
@@ -608,7 +643,7 @@
                     <div class="project-image">⚡</div>
                     <div class="project-content">
                         <h3 class="project-title">ESP32 12-Channel SSR Relay</h3>
-                        <p class="project-description">
+                        <p class="project-description" data-en="Professional-grade 12-channel Solid State Relay module designed for efficient AC/DC load switching. Complete KiCad design files with optimized circuit layout for industrial applications." data-id="Modul Solid State Relay 12-channel tingkat profesional yang dirancang untuk switching beban AC/DC yang efisien. File desain KiCad lengkap dengan layout sirkuit yang dioptimalkan untuk aplikasi industri.">
                             Professional-grade 12-channel Solid State Relay module designed for efficient AC/DC load switching. Complete KiCad design files with optimized circuit layout for industrial applications.
                         </p>
                         <div class="project-tech">
@@ -618,7 +653,7 @@
                             <span class="tech-tag">IoT</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/akmalfadli/esp32-12ch-ssr-relay" class="project-link link-primary">View Code</a>
+                            <a href="https://github.com/akmalfadli/esp32-12ch-ssr-relay" class="project-link link-primary" data-en="View Code" data-id="Lihat Kode">View Code</a>
                         </div>
                     </div>
                 </div>
@@ -626,8 +661,8 @@
                 <div class="project-card">
                     <div class="project-image">🐐</div>
                     <div class="project-content">
-                        <h3 class="project-title">Gaduan Social Platform</h3>
-                        <p class="project-description">
+                        <h3 class="project-title" data-en="Gaduan Social Platform" data-id="Platform Sosial Gaduan">Gaduan Social Platform</h3>
+                        <p class="project-description" data-en="Full-stack social media platform specifically designed for Indonesian goat farmers. Features community interaction, marketplace functionality, and agricultural resource sharing." data-id="Platform media sosial full-stack yang dirancang khusus untuk peternak kambing Indonesia. Fitur interaksi komunitas, fungsionalitas marketplace, dan berbagi sumber daya pertanian.">
                             Full-stack social media platform specifically designed for Indonesian goat farmers. Features community interaction, marketplace functionality, and agricultural resource sharing.
                         </p>
                         <div class="project-tech">
@@ -646,8 +681,8 @@
                 <div class="project-card">
                     <div class="project-image">📱</div>
                     <div class="project-content">
-                        <h3 class="project-title">Android Development</h3>
-                        <p class="project-description">
+                        <h3 class="project-title" data-en="Android Development" data-id="Pengembangan Android">Android Development</h3>
+                        <p class="project-description" data-en="Various Android projects including Japanese furigana text widget enhancement and EventBus implementation for optimized inter-component communication." data-id="Berbagai proyek Android termasuk peningkatan widget teks furigana Jepang dan implementasi EventBus untuk komunikasi antar-komponen yang dioptimalkan.">
                             Various Android projects including Japanese furigana text widget enhancement and EventBus implementation for optimized inter-component communication.
                         </p>
                         <div class="project-tech">
@@ -657,7 +692,7 @@
                             <span class="tech-tag">Event Handling</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/akmalfadli" class="project-link link-primary">View on GitHub</a>
+                            <a href="https://github.com/akmalfadli" class="project-link link-primary" data-en="View on GitHub" data-id="Lihat di GitHub">View on GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -669,54 +704,54 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title" style="color: white;">Let's Work Together</h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">
+                <h2 class="section-title" style="color: white;" data-en="Let's Work Together" data-id="Mari Bekerja Sama">Let's Work Together</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.8);" data-en="Ready to bring your next project to life? Let's discuss how we can collaborate." data-id="Siap untuk mewujudkan proyek berikutnya? Mari diskusikan bagaimana kita bisa berkolaborasi.">
                     Ready to bring your next project to life? Let's discuss how we can collaborate.
                 </p>
             </div>
             
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Get In Touch</h3>
+                    <h3 data-en="Get In Touch" data-id="Hubungi Saya">Get In Touch</h3>
                     <div class="contact-item">
                         <div class="contact-icon">📍</div>
                         <div>
-                            <h4>Location</h4>
-                            <p>Purbalingga, Central Java, Indonesia</p>
+                            <h4 data-en="Location" data-id="Lokasi">Location</h4>
+                            <p data-en="Purbalingga, Central Java, Indonesia" data-id="Purbalingga, Jawa Tengah, Indonesia">Purbalingga, Central Java, Indonesia</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">💼</div>
                         <div>
                             <h4>LinkedIn</h4>
-                            <p><a href="https://id.linkedin.com/in/akmal-fadli-aba7a1290" style="color: var(--accent);">Connect with me</a></p>
+                            <p><a href="https://id.linkedin.com/in/akmal-fadli-aba7a1290" style="color: var(--accent);" data-en="Connect with me" data-id="Terhubung dengan saya">Connect with me</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">💻</div>
                         <div>
                             <h4>GitHub</h4>
-                            <p><a href="https://github.com/akmalfadli" style="color: var(--accent);">Check out my code</a></p>
+                            <p><a href="https://github.com/akmalfadli" style="color: var(--accent);" data-en="Check out my code" data-id="Lihat kode saya">Check out my code</a></p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="contact-form">
-                    <h3>Send Message</h3>
+                    <h3 data-en="Send Message" data-id="Kirim Pesan">Send Message</h3>
                     <form>
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" placeholder="Your Name" required>
+                            <label for="name" data-en="Name" data-id="Nama">Name</label>
+                            <input type="text" id="name" data-placeholder-en="Your Name" data-placeholder-id="Nama Anda" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" id="email" placeholder="your.email@example.com" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" rows="4" placeholder="Tell me about your project..." required></textarea>
+                            <label for="message" data-en="Message" data-id="Pesan">Message</label>
+                            <textarea id="message" rows="4" data-placeholder-en="Tell me about your project..." data-placeholder-id="Ceritakan tentang proyek Anda..." placeholder="Tell me about your project..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;" data-en="Send Message" data-id="Kirim Pesan">Send Message</button>
                     </form>
                 </div>
             </div>
