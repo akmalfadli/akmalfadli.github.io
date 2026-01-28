@@ -1,824 +1,660 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akmal Fadli - IT Professional & Developer</title>
+    <title>Akmal Fadli - Systems Engineer</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            /* Palette: Professional Slate & Electric Blue */
+            --bg-body: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-dim: rgba(56, 189, 248, 0.1);
+            --border: #334155;
+            
+            --max-width: 1100px;
         }
 
-        :root {
-            --primary: #6366f1;
-            --secondary: #8b5cf6;
-            --accent: #06b6d4;
-            --dark: #0f172a;
-            --gray: #64748b;
-            --light-gray: #f1f5f9;
-            --white: #ffffff;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--dark);
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.2s; }
+        ul { list-style: none; }
+
+        /* Utilities */
         .container {
-            max-width: 1200px;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
         }
 
-        /* Navigation */
+        .text-accent { color: var(--accent); }
+        .text-muted { color: var(--text-muted); }
+
+        /* Navbar */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: all 0.3s ease;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        .nav-container {
+        .nav-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            height: 80px;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
+
+        .logo svg { width: 24px; height: 24px; color: var(--accent); }
 
         .nav-links {
             display: flex;
-            list-style: none;
             gap: 2rem;
+            align-items: center;
         }
 
         .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
+            font-size: 0.9rem;
             font-weight: 500;
-            transition: color 0.3s ease;
+            color: var(--text-muted);
         }
 
-        .nav-links a:hover {
-            color: var(--primary);
-        }
+        .nav-links a:hover { color: var(--text-main); }
 
-        .language-toggle {
+        .lang-switch {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-left: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 99px;
+            padding: 2px;
+            margin-left: 1.5rem;
         }
 
         .lang-btn {
-            padding: 0.5rem 1rem;
-            border: 2px solid var(--primary);
-            background: transparent;
-            color: var(--primary);
-            border-radius: 20px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 99px;
             cursor: pointer;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            transition: all 0.2s;
         }
 
         .lang-btn.active {
-            background: var(--primary);
-            color: white;
+            background: var(--text-main);
+            color: var(--bg-body);
         }
 
-        .lang-btn:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* Hero Section */
+        /* Hero */
         .hero {
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            color: white;
             position: relative;
-            overflow: hidden;
+            padding-top: 80px;
         }
 
+        /* Subtle Background Mesh */
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="circuit" width="40" height="40" patternUnits="userSpaceOnUse"><g stroke="rgba(99,102,241,0.3)" stroke-width="0.8" fill="none"><circle cx="5" cy="5" r="2"/><circle cx="35" cy="5" r="2"/><circle cx="5" cy="35" r="2"/><circle cx="35" cy="35" r="2"/><path d="M5,5 L35,5 M5,5 L5,35 M35,5 L35,35 M5,35 L35,35"/><rect x="15" y="15" width="10" height="10" rx="2"/><path d="M10,20 L15,20 M25,20 L30,20"/></g></pattern></defs><rect width="100%" height="100%" fill="url(%23circuit)"/></svg>');
-            opacity: 0.4;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 20%;
+            top: -20%;
             right: -10%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(99,102,241,0.3) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: pulse 4s ease-in-out infinite;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+            filter: blur(80px);
+            z-index: -1;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
-            50% { transform: scale(1.2) rotate(180deg); opacity: 0.6; }
-        }
+        .hero-content { max-width: 800px; }
 
-        .hero-content {
-            position: relative;
-            z-index: 3;
-        }
-
-        .hero-tech-icons {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .tech-icon {
-            position: absolute;
-            color: rgba(99,102,241,0.2);
-            font-size: 2rem;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .tech-icon:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
-        .tech-icon:nth-child(2) { top: 25%; right: 15%; animation-delay: 1s; }
-        .tech-icon:nth-child(3) { top: 60%; left: 8%; animation-delay: 2s; }
-        .tech-icon:nth-child(4) { top: 70%; right: 10%; animation-delay: 3s; }
-        .tech-icon:nth-child(5) { top: 40%; left: 20%; animation-delay: 4s; }
-        .tech-icon:nth-child(6) { top: 80%; right: 25%; animation-delay: 5s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: slideUp 1s ease forwards 0.2s;
-        }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            opacity: 0.9;
-            opacity: 0;
-            animation: slideUp 1s ease forwards 0.4s;
-        }
-
-        .hero .description {
-            font-size: 1.2rem;
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-dim);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 99px;
+            font-size: 0.85rem;
+            font-weight: 600;
             margin-bottom: 2rem;
-            opacity: 0.8;
-            max-width: 600px;
-            opacity: 0;
-            animation: slideUp 1s ease forwards 0.6s;
+            border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            opacity: 0;
-            animation: slideUp 1s ease forwards 0.8s;
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent);
+            animation: pulse 2s infinite;
         }
+
+        h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-desc {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-group { display: flex; gap: 1rem; }
 
         .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.875rem 1.75rem;
+            border-radius: 8px;
             font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+            font-size: 0.95rem;
+            transition: transform 0.2s;
         }
+
+        .btn:hover { transform: translateY(-2px); }
 
         .btn-primary {
-            background: white;
-            color: var(--primary);
+            background: var(--text-main);
+            color: var(--bg-body);
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+        
+        .btn-outline:hover {
+            border-color: var(--text-main);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        /* About Section */
-        .about {
-            padding: 8rem 0;
-            background: var(--light-gray);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .about-content {
+        /* Bento Grid Layout for About/Skills */
+        .bento-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+            margin: 4rem 0;
         }
 
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
+        .bento-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.3s;
         }
+        
+        .bento-card:hover { border-color: var(--accent); }
 
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
+        .col-span-8 { grid-column: span 8; }
+        .col-span-4 { grid-column: span 4; }
+        .col-span-12 { grid-column: span 12; }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-
-        .skill-item {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .skill-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .skill-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Projects Section */
-        .projects {
-            padding: 8rem 0;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-image {
-            height: 200px;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-card-hover);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            color: white;
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .project-description {
-            color: var(--gray);
             margin-bottom: 1.5rem;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-tag {
-            background: var(--light-gray);
-            color: var(--primary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-link {
-            padding: 0.7rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .link-primary {
-            background: var(--primary);
-            color: white;
-        }
-
-        .link-primary:hover {
-            background: var(--secondary);
-        }
-
-        .link-secondary {
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .link-secondary:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 8rem 0;
-            background: var(--dark);
-            color: white;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
             color: var(--accent);
         }
 
-        .contact-item {
+        .tech-stack {
             display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: auto;
         }
 
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            border-radius: 50%;
+        .tech-pill {
+            font-size: 0.8rem;
+            padding: 0.35rem 0.75rem;
+            background: var(--bg-body);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-muted);
+        }
+
+        /* Projects Section */
+        .projects-section { padding: 6rem 0; }
+        
+        .section-header { margin-bottom: 4rem; }
+        .section-title { font-size: 2.5rem; margin-bottom: 1rem; }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            group: hover;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover { transform: translateY(-5px); }
+
+        .project-visual {
+            height: 200px;
+            background: #0f172a;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            overflow: hidden;
+        }
+        
+        /* Abstract CSS patterns for thumbnails */
+        .pattern-grid {
+            background-image: radial-gradient(#334155 1px, transparent 1px);
+            background-size: 20px 20px;
+            width: 100%; height: 100%; opacity: 0.3;
+        }
+        
+        .pattern-circle {
+            position: absolute;
+            width: 150px; height: 150px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            opacity: 0.2;
+            border-radius: 50%;
+        }
+
+        .project-body { padding: 2rem; }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .project-link svg { width: 16px; height: 16px; transition: transform 0.2s;}
+        .project-link:hover svg { transform: translateX(4px); }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            padding: 6rem 0;
+            border-top: 1px solid var(--border);
         }
 
         .contact-form {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: var(--accent);
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
 
-        .form-group input,
-        .form-group textarea {
+        .form-input {
             width: 100%;
             padding: 1rem;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-family: inherit;
         }
 
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.7);
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
         }
 
-        /* Footer */
-        footer {
-            background: #000;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        /* Animations */
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
+        /* Mobile */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+            .nav-links { display: none; }
+            .col-span-8, .col-span-4 { grid-column: span 12; }
+            .hero h1 { font-size: 2.5rem; }
+            .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .bento-grid { gap: 1rem; }
+        }
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(56, 189, 248, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+
     <nav>
-        <div class="nav-container">
-            <div class="logo">Akmal Fadli</div>
-            <div style="display: flex; align-items: center;">
-                <ul class="nav-links">
-                    <li><a href="#home" data-en="Home" data-id="Beranda">Home</a></li>
-                    <li><a href="#about" data-en="About" data-id="Tentang">About</a></li>
-                    <li><a href="#projects" data-en="Projects" data-id="Proyek">Projects</a></li>
-                    <li><a href="#contact" data-en="Contact" data-id="Kontak">Contact</a></li>
-                </ul>
-                <div class="language-toggle">
-                    <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
-                    <button class="lang-btn" onclick="switchLanguage('id')">ID</button>
+        <div class="container">
+            <div class="nav-inner">
+                <a href="#" class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 17l6-6-6-6M12 19h8" />
+                    </svg>
+                    <span>Akmal Fadli</span>
+                </a>
+                
+                <div style="display: flex; align-items: center;">
+                    <div class="nav-links">
+                        <a href="#about" data-en="About" data-id="Tentang">About</a>
+                        <a href="#projects" data-en="Projects" data-id="Proyek">Projects</a>
+                        <a href="#contact" data-en="Contact" data-id="Kontak">Contact</a>
+                    </div>
+                    
+                    <div class="lang-switch">
+                        <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+                        <button class="lang-btn" onclick="switchLanguage('id')">ID</button>
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-tech-icons">
-            <div class="tech-icon">🔌</div>
-            <div class="tech-icon">⚡</div>
-            <div class="tech-icon">🛠️</div>
-            <div class="tech-icon">📡</div>
-            <div class="tech-icon">💾</div>
-            <div class="tech-icon">🔧</div>
-        </div>
+    <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Akmal Fadli</h1>
-                <p class="subtitle" data-en="IoT Hardware Developer & Systems Engineer" data-id="Pengembang Hardware IoT & Insinyur Sistem">IoT Hardware Developer & Systems Engineer</p>
-                <p class="description" data-en="Designing intelligent hardware solutions with Microcontroller, creating seamless IoT ecosystems, and bridging the gap between embedded systems and modern applications. From circuit design to full-stack implementation." data-id="Merancang solusi hardware cerdas dengan Microcontroller, menciptakan ekosistem IoT yang seamless, dan menjembatani sistem embedded dengan aplikasi modern. Dari desain sirkuit hingga implementasi full-stack.">
-                    Designing intelligent hardware solutions with Microcontroller, creating seamless IoT ecosystems, and bridging the gap between embedded systems and modern applications. From circuit design to full-stack implementation.
-                </p>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary" data-en="View My Work" data-id="Lihat Karya Saya">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary" data-en="Get In Touch" data-id="Hubungi Saya">Get In Touch</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-en="About Me" data-id="Tentang Saya">About Me</h2>
-                <p class="section-subtitle" data-en="A versatile IT professional from Purbalingga, Central Java, with expertise spanning hardware design, software development, and system architecture." data-id="Profesional IT serbaguna dari Purbalingga, Jawa Tengah, dengan keahlian yang mencakup desain hardware, pengembangan software, dan arsitektur sistem.">
-                    A versatile IT professional from Purbalingga, Central Java, with expertise spanning hardware design, software development, and system architecture.
-                </p>
-            </div>
-            
-            <div class="about-content">
-                <div class="about-text">
-                    <h3 data-en="Building Tomorrow's Technology Today" data-id="Membangun Teknologi Masa Depan Hari Ini">Building Tomorrow's Technology Today</h3>
-                    <p data-en="As a dedicated IT professional, I specialize in creating comprehensive solutions that bridge hardware and software. My journey has taken me from designing Microcontroller-based IoT systems to developing full-stack web applications for niche markets like livestock management." data-id="Sebagai profesional IT yang berdedikasi, saya mengkhususkan diri dalam menciptakan solusi komprehensif yang menjembatani hardware dan software. Perjalanan saya telah membawa saya dari merancang sistem IoT berbasis Microcontroller hingga mengembangkan aplikasi web full-stack untuk pasar khusus seperti manajemen ternak.">
-                        As a dedicated IT professional, I specialize in creating comprehensive solutions that bridge hardware and software. My journey has taken me from designing Microcontroller-based IoT systems to developing full-stack web applications for niche markets like livestock management.
-                    </p>
-                    <p data-en="I believe in the power of technology to solve real-world problems, whether it's through efficient relay control systems or user-friendly mobile applications. Every project is an opportunity to learn, innovate, and make a meaningful impact." data-id="Saya percaya pada kekuatan teknologi untuk memecahkan masalah dunia nyata, baik melalui sistem kontrol relay yang efisien maupun aplikasi mobile yang user-friendly. Setiap proyek adalah kesempatan untuk belajar, berinovasi, dan memberikan dampak yang bermakna.">
-                        I believe in the power of technology to solve real-world problems, whether it's through efficient relay control systems or user-friendly mobile applications. Every project is an opportunity to learn, innovate, and make a meaningful impact.
-                    </p>
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span data-en="Available for new projects" data-id="Tersedia untuk proyek baru">Available for new projects</span>
                 </div>
                 
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <div class="skill-icon">⚡</div>
-                        <h4 data-en="IoT & Hardware" data-id="IoT & Hardware">IoT & Hardware</h4>
-                        <p>Microcontroller, Circuit Design, KiCad</p>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">📱</div>
-                        <h4 data-en="Mobile Development" data-id="Pengembangan Mobile">Mobile Development</h4>
-                        <p>Android, Java, React Native</p>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">🌐</div>
-                        <h4 data-en="Web Development" data-id="Pengembangan Web">Web Development</h4>
-                        <p>Full-Stack, PHP, JavaScript</p>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">🛠️</div>
-                        <h4 data-en="System Architecture" data-id="Arsitektur Sistem">System Architecture</h4>
-                        <p>API Design, Database, DevOps</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-en="Featured Projects" data-id="Proyek Unggulan">Featured Projects</h2>
-                <p class="section-subtitle" data-en="A showcase of my work across different technologies and domains" data-id="Showcase karya saya di berbagai teknologi dan domain">
-                    A showcase of my work across different technologies and domains
-                </p>
-            </div>
-            
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">⚡</div>
-                    <div class="project-content">
-                        <h3 class="project-title">Esp32 12-Channel SSR Relay</h3>
-                        <p class="project-description" data-en="Professional-grade 12-channel Solid State Relay module designed for efficient AC/DC load switching. Complete KiCad design files with optimized circuit layout for industrial applications." data-id="Modul Solid State Relay 12-channel tingkat profesional yang dirancang untuk switching beban AC/DC yang efisien. File desain KiCad lengkap dengan layout sirkuit yang dioptimalkan untuk aplikasi industri.">
-                            Professional-grade 12-channel Solid State Relay module designed for efficient AC/DC load switching. Complete KiCad design files with optimized circuit layout for industrial applications.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Esp32</span>
-                            <span class="tech-tag">KiCad</span>
-                            <span class="tech-tag">Circuit Design</span>
-                            <span class="tech-tag">IoT</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/akmalfadli/Microcontroller-12ch-ssr-relay" class="project-link link-primary" data-en="View Code" data-id="Lihat Kode">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">🐐</div>
-                    <div class="project-content">
-                        <h3 class="project-title" data-en="Gaduan Social Platform" data-id="Platform Sosial Gaduan">Gaduan Social Platform</h3>
-                        <p class="project-description" data-en="Full-stack social media platform specifically designed for Indonesian goat farmers. Features community interaction, marketplace functionality, and agricultural resource sharing." data-id="Platform media sosial full-stack yang dirancang khusus untuk peternak kambing Indonesia. Fitur interaksi komunitas, fungsionalitas marketplace, dan berbagi sumber daya pertanian.">
-                            Full-stack social media platform specifically designed for Indonesian goat farmers. Features community interaction, marketplace functionality, and agricultural resource sharing.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">PHP</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">REST API</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/akmalfadli/gaduan" class="project-link link-primary">Frontend</a>
-                            <a href="https://github.com/akmalfadli/gaduan-api" class="project-link link-secondary">Backend API</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">📱</div>
-                    <div class="project-content">
-                        <h3 class="project-title" data-en="Android Development" data-id="Pengembangan Android">Android Development</h3>
-                        <p class="project-description" data-en="Various Android projects including Japanese furigana text widget enhancement and EventBus implementation for optimized inter-component communication." data-id="Berbagai proyek Android termasuk peningkatan widget teks furigana Jepang dan implementasi EventBus untuk komunikasi antar-komponen yang dioptimalkan.">
-                            Various Android projects including Japanese furigana text widget enhancement and EventBus implementation for optimized inter-component communication.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Android SDK</span>
-                            <span class="tech-tag">Custom Views</span>
-                            <span class="tech-tag">Event Handling</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/akmalfadli" class="project-link link-primary" data-en="View on GitHub" data-id="Lihat di GitHub">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" style="color: white;" data-en="Let's Work Together" data-id="Mari Bekerja Sama">Let's Work Together</h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.8);" data-en="Ready to bring your next project to life? Let's discuss how we can collaborate." data-id="Siap untuk mewujudkan proyek berikutnya? Mari diskusikan bagaimana kita bisa berkolaborasi.">
-                    Ready to bring your next project to life? Let's discuss how we can collaborate.
-                </p>
-            </div>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3 data-en="Get In Touch" data-id="Hubungi Saya">Get In Touch</h3>
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>
-                            <h4 data-en="Location" data-id="Lokasi">Location</h4>
-                            <p data-en="Purbalingga, Central Java, Indonesia" data-id="Purbalingga, Jawa Tengah, Indonesia">Purbalingga, Central Java, Indonesia</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">💼</div>
-                        <div>
-                            <h4>LinkedIn</h4>
-                            <p><a href="https://id.linkedin.com/in/akmal-fadli-aba7a1290" style="color: var(--accent);" data-en="Connect with me" data-id="Terhubung dengan saya">Connect with me</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">💻</div>
-                        <div>
-                            <h4>GitHub</h4>
-                            <p><a href="https://github.com/akmalfadli" style="color: var(--accent);" data-en="Check out my code" data-id="Lihat kode saya">Check out my code</a></p>
-                        </div>
-                    </div>
-                </div>
+                <h1 data-en="Bridging Hardware & Modern Web Systems." data-id="Menjembatani Hardware & Sistem Web Modern.">
+                    Bridging Hardware & Modern Web Systems.
+                </h1>
                 
-                <div class="contact-form">
-                    <h3 data-en="Send Message" data-id="Kirim Pesan">Send Message</h3>
-                    <form>
-                        <div class="form-group">
-                            <label for="name" data-en="Name" data-id="Nama">Name</label>
-                            <input type="text" id="name" data-placeholder-en="Your Name" data-placeholder-id="Nama Anda" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="your.email@example.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" data-en="Message" data-id="Pesan">Message</label>
-                            <textarea id="message" rows="4" data-placeholder-en="Tell me about your project..." data-placeholder-id="Ceritakan tentang proyek Anda..." placeholder="Tell me about your project..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;" data-en="Send Message" data-id="Kirim Pesan">Send Message</button>
-                    </form>
+                <p class="hero-desc" data-en="I am an IoT Hardware Developer & Systems Engineer based in Indonesia. I design intelligent circuits and build scalable full-stack applications." data-id="Saya adalah Pengembang Hardware IoT & Insinyur Sistem berbasis di Indonesia. Saya merancang sirkuit cerdas dan membangun aplikasi full-stack yang scalable.">
+                    I am an IoT Hardware Developer & Systems Engineer based in Indonesia. I design intelligent circuits and build scalable full-stack applications.
+                </p>
+
+                <div class="btn-group">
+                    <a href="#projects" class="btn btn-primary" data-en="View Work" data-id="Lihat Karya">View Work</a>
+                    <a href="#contact" class="btn btn-outline" data-en="Contact Me" data-id="Hubungi Saya">Contact Me</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <section id="about">
         <div class="container">
-            <p>&copy; 2025 Akmal Fadli. Crafted with passion for technology and innovation.</p>
+            <div class="bento-grid">
+                
+                <div class="bento-card col-span-8">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;" data-en="Engineering Philosophy" data-id="Filosofi Rekayasa">Engineering Philosophy</h3>
+                    <p class="text-muted" data-en="I specialize in creating comprehensive solutions that bridge the physical and digital worlds. My journey spans from designing microcontroller-based IoT systems to deploying robust livestock management platforms. I believe in clean code, efficient circuits, and solving real problems." data-id="Saya mengkhususkan diri dalam menciptakan solusi komprehensif yang menjembatani dunia fisik dan digital. Perjalanan saya mencakup desain sistem IoT berbasis mikrokontroler hingga platform manajemen ternak yang tangguh. Saya percaya pada kode bersih, sirkuit efisien, dan memecahkan masalah nyata.">
+                        I specialize in creating comprehensive solutions that bridge the physical and digital worlds. My journey spans from designing microcontroller-based IoT systems to deploying robust livestock management platforms. I believe in clean code, efficient circuits, and solving real problems.
+                    </p>
+                </div>
+
+                <div class="bento-card col-span-4">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+                    </div>
+                    <h4>Hardware & IoT</h4>
+                    <div class="tech-stack" style="margin-top: 1.5rem;">
+                        <span class="tech-pill">ESP32</span>
+                        <span class="tech-pill">KiCad</span>
+                        <span class="tech-pill">PCB Design</span>
+                        <span class="tech-pill">C++</span>
+                        <span class="tech-pill">MQTT</span>
+                    </div>
+                </div>
+
+                <div class="bento-card col-span-4">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    </div>
+                    <h4>Full Stack</h4>
+                    <div class="tech-stack" style="margin-top: 1.5rem;">
+                        <span class="tech-pill">PHP</span>
+                        <span class="tech-pill">JavaScript</span>
+                        <span class="tech-pill">React</span>
+                        <span class="tech-pill">MySQL</span>
+                        <span class="tech-pill">REST API</span>
+                    </div>
+                </div>
+
+                <div class="bento-card col-span-8">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                    </div>
+                    <h3 style="margin-bottom: 0.5rem;" data-en="Systems Architecture" data-id="Arsitektur Sistem">Systems Architecture</h3>
+                    <p class="text-muted" data-en="Experience with DevOps, Linux server management, Android Development (Java), and designing scalable database structures." data-id="Pengalaman dengan DevOps, manajemen server Linux, Pengembangan Android (Java), dan merancang struktur database yang scalable.">
+                        Experience with DevOps, Linux server management, Android Development (Java), and designing scalable database structures.
+                    </p>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Selected Works" data-id="Karya Terpilih">Selected Works</h2>
+                <p class="text-muted" data-en="Hardware and software solutions built for production environments." data-id="Solusi hardware dan software yang dibangun untuk lingkungan produksi.">Hardware and software solutions built for production environments.</p>
+            </div>
+
+            <div class="bento-grid" style="margin-top: 0; gap: 2rem;">
+                
+                <div class="project-card col-span-4">
+                    <div class="project-visual">
+                        <div class="pattern-grid"></div>
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5">
+                            <rect x="4" y="4" width="16" height="16" rx="2" />
+                            <path d="M9 9h6v6H9z" />
+                            <path d="M9 4v-2 M15 4v-2 M9 20v2 M15 20v2 M20 9h2 M20 15h2 M4 9H2 M4 15H2" />
+                        </svg>
+                    </div>
+                    <div class="project-body">
+                        <h3>ESP32 12-Channel SSR</h3>
+                        <p class="text-muted" style="margin: 1rem 0; font-size: 0.9rem;" data-en="Industrial-grade Solid State Relay module for AC/DC load switching. Custom KiCad PCB design." data-id="Modul Solid State Relay tingkat industri untuk switching beban AC/DC. Desain PCB KiCad kustom.">
+                            Industrial-grade Solid State Relay module for AC/DC load switching. Custom KiCad PCB design.
+                        </p>
+                        <a href="https://github.com/akmalfadli/Microcontroller-12ch-ssr-relay" class="project-link">
+                            <span data-en="View Source" data-id="Lihat Sumber">View Source</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card col-span-4">
+                    <div class="project-visual">
+                        <div class="pattern-grid"></div>
+                        <div class="pattern-circle"></div>
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="project-body">
+                        <h3 data-en="Gaduan Platform" data-id="Platform Gaduan">Gaduan Platform</h3>
+                        <p class="text-muted" style="margin: 1rem 0; font-size: 0.9rem;" data-en="Niche social marketplace for goat farmers. Features resource sharing and community tools." data-id="Marketplace sosial khusus untuk peternak kambing. Fitur berbagi sumber daya dan alat komunitas.">
+                            Niche social marketplace for goat farmers. Features resource sharing and community tools.
+                        </p>
+                        <a href="https://github.com/akmalfadli/gaduan" class="project-link">
+                            <span data-en="View Project" data-id="Lihat Proyek">View Project</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card col-span-4">
+                    <div class="project-visual">
+                        <div class="pattern-grid"></div>
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
+                    </div>
+                    <div class="project-body">
+                        <h3 data-en="Android Modules" data-id="Modul Android">Android Modules</h3>
+                        <p class="text-muted" style="margin: 1rem 0; font-size: 0.9rem;" data-en="Native Java components including Japanese furigana widgets and EventBus implementations." data-id="Komponen Java native termasuk widget furigana Jepang dan implementasi EventBus.">
+                            Native Java components including Japanese furigana widgets and EventBus implementations.
+                        </p>
+                        <a href="https://github.com/akmalfadli" class="project-link">
+                            <span data-en="Check GitHub" data-id="Cek GitHub">Check GitHub</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem;" data-en="Let's Collaborate" data-id="Mari Berkolaborasi">Let's Collaborate</h2>
+                    <p class="text-muted" style="margin-bottom: 2rem;" data-en="Based in Purbalingga, Central Java. I'm always open to discussing hardware prototypes or systems engineering roles." data-id="Berbasis di Purbalingga, Jawa Tengah. Saya selalu terbuka untuk mendiskusikan prototipe hardware atau peran rekayasa sistem.">
+                        Based in Purbalingga, Central Java. I'm always open to discussing hardware prototypes or systems engineering roles.
+                    </p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <a href="https://id.linkedin.com/in/akmal-fadli-aba7a1290" class="project-link" style="color: var(--text-main); margin-top: 0;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            LinkedIn
+                        </a>
+                        <a href="https://github.com/akmalfadli" class="project-link" style="color: var(--text-main); margin-top: 0;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label data-en="Name" data-id="Nama">Name</label>
+                        <input type="text" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-en="Message" data-id="Pesan">Message</label>
+                        <textarea class="form-input" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="justify-content: center;" data-en="Send Message" data-id="Kirim Pesan">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer style="border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+        <p>&copy; 2025 Akmal Fadli. Engineering the Future.</p>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        // Language Switcher Logic
+        function switchLanguage(lang) {
+            // Update buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.innerText.toLowerCase() === lang) {
+                    btn.classList.add('active');
                 }
             });
-        });
 
-        // Navbar background on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(255, 255, 255, 0.98)';
-                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.95)';
-                nav.style.boxShadow = 'none';
-            }
-        });
+            // Update Text
+            const elements = document.querySelectorAll('[data-en]');
+            elements.forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    // Fade effect
+                    el.style.opacity = '0';
+                    setTimeout(() => {
+                        el.innerText = text;
+                        el.style.opacity = '1';
+                    }, 200);
+                }
+            });
 
-        // Form submission
+            // Update Placeholders
+            const inputs = document.querySelectorAll('[data-placeholder-en]');
+            inputs.forEach(input => {
+                const text = input.getAttribute(`data-placeholder-${lang}`);
+                if (text) input.placeholder = text;
+            });
+        }
+
+        // Form handling
         document.querySelector('form').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Thank you for your message! I\'ll get back to you soon.');
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerText;
+            
+            btn.innerText = 'Sent!';
+            btn.style.background = '#22c55e'; // Green
+            
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.background = '';
+                e.target.reset();
+            }, 3000);
         });
 
-        // Add intersection observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe project cards and skill items
-        document.querySelectorAll('.project-card, .skill-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
+        // Add subtle transition to all text changes
+        document.querySelectorAll('[data-en]').forEach(el => {
+            el.style.transition = 'opacity 0.2s ease';
         });
     </script>
 </body>
