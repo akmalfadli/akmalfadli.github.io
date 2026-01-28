@@ -131,7 +131,6 @@
             padding-top: 80px;
         }
 
-        /* Subtle Background Mesh */
         .hero::before {
             content: '';
             position: absolute;
@@ -213,7 +212,7 @@
             border-color: var(--text-main);
         }
 
-        /* Bento Grid Layout for About/Skills */
+        /* Bento Grid Layout */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
@@ -234,9 +233,9 @@
         .bento-card:hover { border-color: var(--accent); }
 
         .col-span-8 { grid-column: span 8; }
+        .col-span-6 { grid-column: span 6; }
         .col-span-4 { grid-column: span 4; }
-        .col-span-12 { grid-column: span 12; }
-
+        
         .card-icon {
             width: 48px;
             height: 48px;
@@ -276,44 +275,45 @@
             border: 1px solid var(--border);
             border-radius: 16px;
             overflow: hidden;
-            group: hover;
+            display: flex;
+            flex-direction: column;
             transition: transform 0.3s;
+            height: 100%;
         }
 
         .project-card:hover { transform: translateY(-5px); }
 
         .project-visual {
-            height: 200px;
+            height: 220px;
             background: #0f172a;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            border-bottom: 1px solid var(--border);
         }
         
-        /* Abstract CSS patterns for thumbnails */
         .pattern-grid {
             background-image: radial-gradient(#334155 1px, transparent 1px);
             background-size: 20px 20px;
             width: 100%; height: 100%; opacity: 0.3;
-        }
-        
-        .pattern-circle {
             position: absolute;
-            width: 150px; height: 150px;
-            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-            opacity: 0.2;
-            border-radius: 50%;
         }
 
-        .project-body { padding: 2rem; }
+        .project-body { 
+            padding: 2rem; 
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
         
         .project-link {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            margin-top: 1.5rem;
+            margin-top: auto;
+            padding-top: 1.5rem;
             font-size: 0.9rem;
             font-weight: 600;
             color: var(--accent);
@@ -362,10 +362,11 @@
         /* Mobile */
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .col-span-8, .col-span-4 { grid-column: span 12; }
+            .col-span-8, .col-span-6, .col-span-4 { grid-column: span 12; }
             .hero h1 { font-size: 2.5rem; }
             .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
             .bento-grid { gap: 1rem; }
+            .project-visual { height: 180px; }
         }
 
         @keyframes pulse {
@@ -436,8 +437,8 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
                     </div>
                     <h3 style="margin-bottom: 1rem;" data-en="Engineering Philosophy" data-id="Filosofi Rekayasa">Engineering Philosophy</h3>
-                    <p class="text-muted" data-en="I specialize in creating comprehensive solutions that bridge the physical and digital worlds. My journey spans from designing microcontroller-based IoT systems to deploying robust livestock management platforms. I believe in clean code, efficient circuits, and solving real problems." data-id="Saya mengkhususkan diri dalam menciptakan solusi komprehensif yang menjembatani dunia fisik dan digital. Perjalanan saya mencakup desain sistem IoT berbasis mikrokontroler hingga platform manajemen ternak yang tangguh. Saya percaya pada kode bersih, sirkuit efisien, dan memecahkan masalah nyata.">
-                        I specialize in creating comprehensive solutions that bridge the physical and digital worlds. My journey spans from designing microcontroller-based IoT systems to deploying robust livestock management platforms. I believe in clean code, efficient circuits, and solving real problems.
+                    <p class="text-muted" data-en="I specialize in creating comprehensive solutions that bridge the physical and digital worlds. My journey spans from designing microcontroller-based IoT systems to deploying robust platforms for rural digitalization. I believe in clean code, efficient circuits, and solving real problems." data-id="Saya mengkhususkan diri dalam menciptakan solusi komprehensif yang menjembatani dunia fisik dan digital. Perjalanan saya mencakup desain sistem IoT berbasis mikrokontroler hingga platform digitalisasi desa yang tangguh. Saya percaya pada kode bersih, sirkuit efisien, dan memecahkan masalah nyata.">
+                        I specialize in creating comprehensive solutions that bridge the physical and digital worlds. My journey spans from designing microcontroller-based IoT systems to deploying robust platforms for rural digitalization. I believe in clean code, efficient circuits, and solving real problems.
                     </p>
                 </div>
 
@@ -450,7 +451,6 @@
                         <span class="tech-pill">ESP32</span>
                         <span class="tech-pill">KiCad</span>
                         <span class="tech-pill">PCB Design</span>
-                        <span class="tech-pill">C++</span>
                         <span class="tech-pill">MQTT</span>
                     </div>
                 </div>
@@ -461,11 +461,10 @@
                     </div>
                     <h4>Full Stack</h4>
                     <div class="tech-stack" style="margin-top: 1.5rem;">
-                        <span class="tech-pill">PHP</span>
-                        <span class="tech-pill">JavaScript</span>
+                        <span class="tech-pill">PHP / Laravel</span>
+                        <span class="tech-pill">Next.js</span>
                         <span class="tech-pill">React</span>
                         <span class="tech-pill">MySQL</span>
-                        <span class="tech-pill">REST API</span>
                     </div>
                 </div>
 
@@ -474,8 +473,8 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
                     </div>
                     <h3 style="margin-bottom: 0.5rem;" data-en="Systems Architecture" data-id="Arsitektur Sistem">Systems Architecture</h3>
-                    <p class="text-muted" data-en="Experience with DevOps, Linux server management, Android Development (Java), and designing scalable database structures." data-id="Pengalaman dengan DevOps, manajemen server Linux, Pengembangan Android (Java), dan merancang struktur database yang scalable.">
-                        Experience with DevOps, Linux server management, Android Development (Java), and designing scalable database structures.
+                    <p class="text-muted" data-en="Experience with DevOps, Linux server management, Android Development (Java), and designing scalable database structures for production SaaS." data-id="Pengalaman dengan DevOps, manajemen server Linux, Pengembangan Android (Java), dan merancang struktur database yang scalable untuk SaaS produksi.">
+                        Experience with DevOps, Linux server management, Android Development (Java), and designing scalable database structures for production SaaS.
                     </p>
                 </div>
             </div>
@@ -485,71 +484,108 @@
     <section id="projects" class="projects-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title" data-en="Selected Works" data-id="Karya Terpilih">Selected Works</h2>
-                <p class="text-muted" data-en="Hardware and software solutions built for production environments." data-id="Solusi hardware dan software yang dibangun untuk lingkungan produksi.">Hardware and software solutions built for production environments.</p>
+                <h2 class="section-title" data-en="Production & R&D" data-id="Produksi & R&D">Production & R&D</h2>
+                <p class="text-muted" data-en="SaaS platforms running in production and open-source tools." data-id="Platform SaaS yang berjalan di produksi dan alat open-source.">SaaS platforms running in production and open-source tools.</p>
             </div>
 
             <div class="bento-grid" style="margin-top: 0; gap: 2rem;">
                 
-                <div class="project-card col-span-4">
+                <div class="project-card col-span-6">
                     <div class="project-visual">
                         <div class="pattern-grid"></div>
                         <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5">
+                            <path d="M12 2.69l5.74 5.74c2.5 2.5 2.5 6.55 0 9.05l-3 3a5.5 5.5 0 0 1-7.78 0l-3-3c-2.5-2.5-2.5-6.55 0-9.05L12 2.69z"/>
+                            <path d="M12 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+                            <path d="M12 13V8"/>
+                        </svg>
+                    </div>
+                    <div class="project-body">
+                        <h3>WaterMeter.id</h3>
+                        <p class="text-muted" style="margin: 1rem 0; font-size: 0.9rem;" data-en="Comprehensive IoT solution for water meter recording and billing automation. Features real-time dashboard and customer management." data-id="Solusi IoT komprehensif untuk pencatatan meteran air dan otomatisasi penagihan. Fitur dashboard real-time dan manajemen pelanggan.">
+                            Comprehensive IoT solution for water meter recording and billing automation. Features real-time dashboard and customer management.
+                        </p>
+                        <a href="https://watermeter.id/" target="_blank" class="project-link">
+                            <span data-en="Visit Platform" data-id="Kunjungi Platform">Visit Platform</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card col-span-6">
+                    <div class="project-visual">
+                        <div class="pattern-grid"></div>
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5">
+                            <path d="M3 21h18M5 21V7l8-4 8 4v14M8 21v-9a4 4 0 0 1 4-4 4 4 0 0 1 4 4v9"/>
+                        </svg>
+                    </div>
+                    <div class="project-body">
+                        <h3>Digidesa.id</h3>
+                        <p class="text-muted" style="margin: 1rem 0; font-size: 0.9rem;" data-en="Digital ecosystem empowering rural governance through e-learning and online exams for village officials." data-id="Ekosistem digital yang memberdayakan pemerintahan desa melalui e-learning dan ujian online untuk perangkat desa.">
+                            Digital ecosystem empowering rural governance through e-learning and online exams for village officials.
+                        </p>
+                        <a href="https://digidesa.id" target="_blank" class="project-link">
+                            <span data-en="Visit Platform" data-id="Kunjungi Platform">Visit Platform</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card col-span-4">
+                    <div class="project-visual">
+                        <div class="pattern-grid"></div>
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5">
+                            <path d="M15 10l5-5m0 0l-5-5m5 5H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4" />
+                            <circle cx="9" cy="14" r="3" />
+                        </svg>
+                    </div>
+                    <div class="project-body">
+                        <h3>CCTV Tunnel</h3>
+                        <p class="text-muted" style="margin: 1rem 0; font-size: 0.85rem;" data-en="Secure tunneling solution for exposing local RTSP streams to the web without public IPs." data-id="Solusi tunneling aman untuk mengekspos stream RTSP lokal ke web tanpa IP publik.">
+                            Secure tunneling solution for exposing local RTSP streams to the web without public IPs.
+                        </p>
+                        <a href="https://github.com/akmalfadli/cctv-camera-tunnel" target="_blank" class="project-link">
+                            <span data-en="View Repo" data-id="Lihat Repo">View Repo</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card col-span-4">
+                    <div class="project-visual">
+                        <div class="pattern-grid"></div>
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5">
+                            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                            <polyline points="13 2 13 9 20 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="project-body">
+                        <h3>WiraTiket</h3>
+                        <p class="text-muted" style="margin: 1rem 0; font-size: 0.85rem;" data-en="Modern digital ticketing and event management system with QR verification." data-id="Sistem manajemen tiket dan acara digital modern dengan verifikasi QR.">
+                            Modern digital ticketing and event management system with QR verification.
+                        </p>
+                        <a href="https://wiratiket.com" target="_blank" class="project-link">
+                            <span data-en="Visit Site" data-id="Kunjungi Situs">Visit Site</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card col-span-4">
+                    <div class="project-visual">
+                        <div class="pattern-grid"></div>
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5">
                             <rect x="4" y="4" width="16" height="16" rx="2" />
                             <path d="M9 9h6v6H9z" />
                             <path d="M9 4v-2 M15 4v-2 M9 20v2 M15 20v2 M20 9h2 M20 15h2 M4 9H2 M4 15H2" />
                         </svg>
                     </div>
                     <div class="project-body">
-                        <h3>ESP32 12-Channel SSR</h3>
-                        <p class="text-muted" style="margin: 1rem 0; font-size: 0.9rem;" data-en="Industrial-grade Solid State Relay module for AC/DC load switching. Custom KiCad PCB design." data-id="Modul Solid State Relay tingkat industri untuk switching beban AC/DC. Desain PCB KiCad kustom.">
-                            Industrial-grade Solid State Relay module for AC/DC load switching. Custom KiCad PCB design.
+                        <h3>Multi Channel SSR</h3>
+                        <p class="text-muted" style="margin: 1rem 0; font-size: 0.85rem;" data-en="Industrial-grade Solid State Relay module for AC/DC load switching with custom PCB." data-id="Modul Solid State Relay tingkat industri untuk switching beban AC/DC dengan PCB kustom.">
+                            Industrial-grade Solid State Relay module for AC/DC load switching with custom PCB.
                         </p>
-                        <a href="https://github.com/akmalfadli/Microcontroller-12ch-ssr-relay" class="project-link">
-                            <span data-en="View Source" data-id="Lihat Sumber">View Source</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card col-span-4">
-                    <div class="project-visual">
-                        <div class="pattern-grid"></div>
-                        <div class="pattern-circle"></div>
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                    </div>
-                    <div class="project-body">
-                        <h3 data-en="Gaduan Platform" data-id="Platform Gaduan">Gaduan Platform</h3>
-                        <p class="text-muted" style="margin: 1rem 0; font-size: 0.9rem;" data-en="Niche social marketplace for goat farmers. Features resource sharing and community tools." data-id="Marketplace sosial khusus untuk peternak kambing. Fitur berbagi sumber daya dan alat komunitas.">
-                            Niche social marketplace for goat farmers. Features resource sharing and community tools.
-                        </p>
-                        <a href="https://github.com/akmalfadli/gaduan" class="project-link">
-                            <span data-en="View Project" data-id="Lihat Proyek">View Project</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card col-span-4">
-                    <div class="project-visual">
-                        <div class="pattern-grid"></div>
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="1.5">
-                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                        </svg>
-                    </div>
-                    <div class="project-body">
-                        <h3 data-en="Android Modules" data-id="Modul Android">Android Modules</h3>
-                        <p class="text-muted" style="margin: 1rem 0; font-size: 0.9rem;" data-en="Native Java components including Japanese furigana widgets and EventBus implementations." data-id="Komponen Java native termasuk widget furigana Jepang dan implementasi EventBus.">
-                            Native Java components including Japanese furigana widgets and EventBus implementations.
-                        </p>
-                        <a href="https://github.com/akmalfadli" class="project-link">
-                            <span data-en="Check GitHub" data-id="Cek GitHub">Check GitHub</span>
+                        <a href="https://github.com/akmalfadli/Microcontroller-12ch-ssr-relay" target="_blank" class="project-link">
+                            <span data-en="View Repo" data-id="Lihat Repo">View Repo</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                         </a>
                     </div>
