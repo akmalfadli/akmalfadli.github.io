@@ -87,10 +87,35 @@
             align-items: center; height: 80px;
         }
 
+        /* Navbar Logo - Set to White */
         .logo {
-            font-size: 1.1rem; font-weight: 700;
-            display: flex; align-items: center; gap: 0.5rem;
-            text-transform: uppercase; letter-spacing: 0.1em;
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #ffffff; /* Explicit white for the name */
+            transition: color 0.3s ease;
+        }
+        
+        .logo span {
+            color: #ffffff; /* Ensures the text is white */
+        }
+        
+        .logo svg {
+            width: 20px;
+            height: 20px;
+            color: var(--accent); /* Keeps the icon blue for contrast */
+        }
+        
+        .logo:hover {
+            color: var(--accent); /* Subtle interaction color shift */
+        }
+        
+        .logo:hover span {
+            color: var(--accent);
         }
 
         .logo svg { width: 20px; height: 20px; color: var(--accent); }
