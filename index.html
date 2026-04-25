@@ -33,7 +33,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Animated Tech Background */
         .tech-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -73,7 +72,6 @@
             padding: 0 1.5rem;
         }
 
-        /* Navbar Glassmorphism */
         nav {
             position: fixed;
             top: 0; width: 100%; z-index: 100;
@@ -87,7 +85,6 @@
             align-items: center; height: 80px;
         }
 
-        /* Navbar Logo - Set to White */
         .logo {
             font-size: 1.1rem;
             font-weight: 700;
@@ -96,35 +93,19 @@
             gap: 0.6rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: #ffffff; /* Explicit white for the name */
+            color: #ffffff;
             transition: color 0.3s ease;
+            text-decoration: none;
         }
         
-        .logo span {
-            color: #ffffff; /* Ensures the text is white */
-        }
-        
-        .logo svg {
-            width: 20px;
-            height: 20px;
-            color: var(--accent); /* Keeps the icon blue for contrast */
-        }
-        
-        .logo:hover {
-            color: var(--accent); /* Subtle interaction color shift */
-        }
-        
-        .logo:hover span {
-            color: var(--accent);
-        }
-
+        .logo span { color: #ffffff; }
         .logo svg { width: 20px; height: 20px; color: var(--accent); }
+        .logo:hover span { color: var(--accent); }
 
         .nav-links { display: flex; gap: 2rem; align-items: center; }
-        .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); }
+        .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); text-decoration: none; }
         .nav-links a:hover { color: var(--accent); }
 
-        /* Hero Refined */
         .hero {
             min-height: 95vh;
             display: flex; align-items: center;
@@ -152,7 +133,6 @@
             max-width: 600px; margin-bottom: 2.5rem;
         }
 
-        /* Bento Grid Refined */
         .bento-grid {
             display: grid; grid-template-columns: repeat(12, 1fr);
             gap: 1.25rem; margin: 4rem 0;
@@ -165,6 +145,8 @@
             border-radius: 20px; padding: 2rem;
             display: flex; flex-direction: column;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: inherit;
         }
         
         .bento-card:hover { 
@@ -173,6 +155,7 @@
             transform: translateY(-5px);
         }
 
+        .col-span-12 { grid-column: span 12; }
         .col-span-8 { grid-column: span 8; }
         .col-span-4 { grid-column: span 4; }
         .col-span-6 { grid-column: span 6; }
@@ -196,6 +179,7 @@
         .btn {
             padding: 0.8rem 1.5rem; border-radius: 8px;
             font-weight: 600; font-size: 0.9rem; transition: 0.3s;
+            text-decoration: none; display: inline-block;
         }
 
         .btn-primary { background: var(--accent); color: #000; }
@@ -204,7 +188,9 @@
         .btn-outline { border: 1px solid var(--border); color: var(--text-main); }
         .btn-outline:hover { background: rgba(255,255,255,0.05); }
 
-        /* Responsive */
+        .section-header { margin-bottom: 2rem; }
+        .section-title { font-size: 2rem; margin-bottom: 0.5rem; }
+
         @media (max-width: 768px) {
             .col-span-8, .col-span-4, .col-span-6 { grid-column: span 12; }
             .nav-links { display: none; }
@@ -264,6 +250,7 @@
             </div>
         </div>
     </section>
+
     <section id="projects" class="projects-section">
         <div class="container">
             <div class="section-header">
@@ -271,7 +258,7 @@
                 <p class="text-muted" data-en="Scalable SaaS platforms and open-source systems engineering tools." data-id="Platform SaaS yang scalable dan alat rekayasa sistem open-source.">Scalable SaaS platforms and open-source systems engineering tools.</p>
             </div>
     
-            <div class="bento-grid" style="margin-top: 8;">
+            <div class="bento-grid">
                 
                 <div class="bento-card col-span-6">
                     <div class="project-visual" style="height:150px; background:rgba(0,0,0,0.3); border-radius:12px; margin-bottom:1.5rem; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
@@ -282,50 +269,52 @@
                     <p class="text-muted" style="margin: 1rem 0; font-size: 0.9rem;" data-en="End-to-end IoT ecosystem for automated water billing. Bridges physical flow sensors with a high-performance Laravel dashboard." data-id="Ekosistem IoT end-to-end untuk penagihan air otomatis. Menjembatani sensor aliran fisik dengan dashboard Laravel performa tinggi.">
                         End-to-end IoT ecosystem for automated water billing.
                     </p>
-                    <a href="https://watermeter.id/" target="_blank" class="project-link" style="color:var(--accent); font-weight:600; font-size:0.85rem; display:flex; align-items:center; gap:5px;">
+                    <a href="https://watermeter.id/" target="_blank" style="color:var(--accent); font-weight:600; font-size:0.85rem; display:flex; align-items:center; gap:5px; text-decoration:none;">
                         Visit Platform 
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
                     </a>
                 </div>
-    
+
                 <div class="bento-card col-span-6">
-                    <div class="project-visual" style="height:150px; background:rgba(0,0,0,0.3); border-radius:12px; margin-bottom:1.5rem; display:flex; align-items:center; justify-content:center; overflow:hidden;">
-                        <code style="font-size:0.6rem; color:var(--accent); opacity:0.3; font-family:monospace;">ssh -R 80:localhost:8080 tunnel.akmalfadli.com</code>
+                    <div class="project-visual" style="height:150px; background:rgba(0,0,0,0.3); border-radius:12px; margin-bottom:1.5rem; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" style="opacity:0.4;"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>
                     </div>
-                    <h3>CCTV Tunnel</h3>
-                    <p class="text-muted" style="margin: 1rem 0; font-size: 0.9rem;" data-en="A secure networking solution to expose local RTSP streams to the web, bypassing CGNAT and public IP requirements." data-id="Solusi jaringan aman untuk mengekspos stream RTSP lokal ke web, melewati batas CGNAT dan kebutuhan IP publik.">
-                        Secure networking solution to expose local RTSP streams to the web.
+                    <h3>Bank Mini Sekolah</h3>
+                    <p class="text-muted" style="margin: 1rem 0; font-size: 0.9rem;" data-en="Digital financial portal for educational institutions to manage student savings and automated payments." data-id="Portal keuangan digital untuk institusi pendidikan guna mengelola tabungan siswa dan pembayaran otomatis.">
+                        Digital banking and savings management for schools.
                     </p>
-                    <a href="https://github.com/akmalfadli/cctv-camera-tunnel" target="_blank" class="project-link" style="color:var(--accent); font-weight:600; font-size:0.85rem; display:flex; align-items:center; gap:5px;">
-                        View Repository 
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+                    <a href="https://bankmini.mbank.id/" target="_blank" style="color:var(--accent); font-weight:600; font-size:0.85rem; display:flex; align-items:center; gap:5px; text-decoration:none;">
+                        Launch Portal
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                    </a>
+                </div>
+    
+                <div class="bento-card col-span-4">
+                    <h3>CCTV Tunnel</h3>
+                    <p class="text-muted" style="margin: 1rem 0; font-size: 0.85rem;" data-id="Solusi jaringan aman untuk mengekspos stream RTSP lokal ke web.">
+                        Secure networking solution to expose local RTSP streams.
+                    </p>
+                    <a href="https://github.com/akmalfadli/cctv-camera-tunnel" target="_blank" style="color:var(--accent); font-weight:600; font-size:0.8rem; display:flex; align-items:center; gap:5px; text-decoration:none; margin-top:auto;">
+                        Repository 
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
                     </a>
                 </div>
     
                 <div class="bento-card col-span-4">
                     <h3>Multi-Channel SSR</h3>
-                    <p class="text-muted" style="margin: 0.5rem 0; font-size: 0.85rem;" data-en="Industrial load switching via custom 12-channel Solid State Relay PCB." data-id="Switching beban industri melalui PCB Solid State Relay 12-channel kustom.">
+                    <p class="text-muted" style="margin: 0.5rem 0; font-size: 0.85rem;" data-id="Switching beban industri melalui PCB Solid State Relay kustom.">
                         Industrial load switching via custom PCB.
                     </p>
-                    <a href="https://github.com/akmalfadli/Microcontroller-12ch-ssr-relay" target="_blank" class="project-link" style="color:var(--accent); font-size:0.8rem; margin-top:auto;">Source Code</a>
+                    <a href="https://github.com/akmalfadli/Microcontroller-12ch-ssr-relay" target="_blank" style="color:var(--accent); font-size:0.8rem; margin-top:auto; text-decoration:none;">Source Code</a>
                 </div>
     
                 <div class="bento-card col-span-4">
                     <h3>Digidesa.id</h3>
-                    <p class="text-muted" style="margin: 0.5rem 0; font-size: 0.85rem;" data-en="LMS and Examination platform for rural digital transformation." data-id="Platform LMS dan Ujian untuk transformasi digital pedesaan.">
+                    <p class="text-muted" style="margin: 0.5rem 0; font-size: 0.85rem;" data-id="Platform LMS dan Ujian untuk transformasi digital pedesaan.">
                         LMS for rural digital transformation.
                     </p>
-                    <a href="https://digidesa.id" target="_blank" class="project-link" style="color:var(--accent); font-size:0.8rem; margin-top:auto;">Visit Platform</a>
+                    <a href="https://digidesa.id" target="_blank" style="color:var(--accent); font-size:0.8rem; margin-top:auto; text-decoration:none;">Visit Platform</a>
                 </div>
-    
-                <div class="bento-card col-span-4">
-                    <h3>WiraTiket</h3>
-                    <p class="text-muted" style="margin: 0.5rem 0; font-size: 0.85rem;" data-en="Event management system with secure QR-based gate validation." data-id="Sistem manajemen acara dengan validasi gerbang berbasis QR yang aman.">
-                        Event management & QR validation system.
-                    </p>
-                    <a href="https://wiratiket.com" target="_blank" class="project-link" style="color:var(--accent); font-size:0.8rem; margin-top:auto;">Visit Site</a>
-                </div>
-    
             </div>
         </div>
     </section>
@@ -333,13 +322,12 @@
     <section id="about">
         <div class="container">
             <div class="bento-grid">
-                
                 <div class="bento-card col-span-8">
                     <div class="card-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
                     </div>
                     <h3 style="margin-bottom: 1rem;" data-en="System-Wide Engineering" data-id="Rekayasa Menyeluruh">System-Wide Engineering</h3>
-                    <p class="text-muted" data-en="I don't just build apps; I build infrastructure. My approach combines the precision of hardware engineering with the agility of modern web frameworks. Whether it's digitizing rural governance or automating industrial billing, I focus on reliability and end-to-end integration." data-id="Saya tidak hanya membuat aplikasi; saya membangun infrastruktur. Pendekatan saya menggabungkan presisi rekayasa hardware dengan kelincahan framework web modern. Baik itu digitalisasi desa atau otomatisasi penagihan industri, saya fokus pada reliabilitas dan integrasi menyeluruh.">
+                    <p class="text-muted" data-en="I don't just build apps; I build infrastructure. My approach combines the precision of hardware engineering with the agility of modern web frameworks." data-id="Saya tidak hanya membuat aplikasi; saya membangun infrastruktur. Pendekatan saya menggabungkan presisi rekayasa hardware dengan kelincahan framework web modern.">
                         I don't just build apps; I build infrastructure. My approach combines the precision of hardware engineering with the agility of modern web frameworks.
                     </p>
                 </div>
@@ -350,25 +338,45 @@
                         <span class="tech-pill">Laravel</span>
                         <span class="tech-pill">Next.js</span>
                         <span class="tech-pill">Docker</span>
-                        <span class="tech-pill">Node.js</span>
                         <span class="tech-pill">ESP32/C++</span>
                         <span class="tech-pill">KiCad</span>
                         <span class="tech-pill">MQTT</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="bento-card col-span-6">
-                    <h4 data-en="Hardware Intelligence" data-id="Kecerdasan Hardware">Hardware Intelligence</h4>
-                    <p class="text-muted" style="font-size:0.9rem; margin-top:0.5rem;" data-en="Custom PCB design, sensor integration, and low-latency firmware development." data-id="Desain PCB kustom, integrasi sensor, dan pengembangan firmware low-latency.">
-                        Custom PCB design and low-latency firmware development.
-                    </p>
-                </div>
+    <section id="contact" style="padding-bottom: 5rem;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-en="Get in Touch" data-id="Hubungi Saya">Get in Touch</h2>
+                <p class="text-muted" data-en="Ready to architect your next system? Let's discuss your industrial or digital needs." data-id="Siap membangun sistem Anda selanjutnya? Mari diskusikan kebutuhan industri atau digital Anda.">
+                    Ready to architect your next system?
+                </p>
+            </div>
 
-                <div class="bento-card col-span-6">
-                    <h4 data-en="Cloud & DevOps" data-id="Cloud & DevOps">Cloud & DevOps</h4>
-                    <p class="text-muted" style="font-size:0.9rem; margin-top:0.5rem;" data-en="Managing Linux clusters, automated deployments, and secure data tunneling." data-id="Manajemen cluster Linux, deployment otomatis, dan tunneling data aman.">
-                        Managing Linux clusters, automated deployments, and secure data tunneling.
-                    </p>
+            <div class="bento-grid">
+                <a href="mailto:teknologiperwira@gmail.com" class="bento-card col-span-6">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </div>
+                    <h3 data-en="Email" data-id="Surel">Email</h3>
+                    <p class="text-muted" style="margin-top:0.5rem;">teknologiperwira@gmail.com</p>
+                    <span style="color:var(--accent); font-size:0.8rem; margin-top:1.5rem; font-weight:600;" data-en="Send Message →" data-id="Kirim Pesan →">Send Message →</span>
+                </a>
+
+                <a href="https://t.me/akumarukun" target="_blank" class="bento-card col-span-6">
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </div>
+                    <h3 data-en="Telegram" data-id="Telegram">Telegram</h3>
+                    <p class="text-muted" style="margin-top:0.5rem;">@akumarukun</p>
+                    <span style="color:var(--accent); font-size:0.8rem; margin-top:1.5rem; font-weight:600;" data-en="Chat Now →" data-id="Mulai Chat →">Chat Now →</span>
+                </a>
+                
+                <div class="bento-card col-span-12" style="text-align: center; align-items: center; justify-content: center; background: linear-gradient(to bottom, var(--bg-card), transparent);">
+                    <p class="text-muted" style="font-size: 0.8rem;">© 2026 Akmal Fadli | PT Perwira Teknologi Informasi</p>
                 </div>
             </div>
         </div>
@@ -386,6 +394,14 @@
                         el.style.opacity = '1';
                     }, 200);
                 }
+            });
+            
+            // Highlight active language button
+            const buttons = document.querySelectorAll('button[onclick^="switchLanguage"]');
+            buttons.forEach(btn => {
+                const btnLang = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
+                btn.style.color = btnLang === lang ? 'var(--accent)' : 'var(--text-muted)';
+                btn.style.fontWeight = btnLang === lang ? 'bold' : 'normal';
             });
         }
     </script>
